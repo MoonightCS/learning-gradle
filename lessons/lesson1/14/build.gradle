@@ -1,0 +1,34 @@
+/*
+Just like a closure can have a delegate object, the entire build script delegates to a project
+object. All the keywords in the Gradle DSL are properties of, or methods on,
+the project object.
+
+For instance, the project object has a method called `task` for declaring
+tasks. It accepts a name of a new task and a configuration closure
+
+Closure может иметь объекта-делегата.
+Весь билд также делегирует вызовы объекту проекта.
+Все ключевые слова в Gradle DSL являются свойствами или методами объекта проекта
+У объекта проекта есть метод, который называется 'task' для объявления задач (tasks)
+
+*/
+
+task bodyaTask
+bodyaTask.description = "bodya task description"
+bodyaTask.group = "bodya"
+bodyaTask.doLast {println "Do last for bodya task"}
+
+
+task maryanaTask
+maryanaTask.description = "maryanaTask description"
+maryanaTask.group = "bodya"
+maryanaTask.doLast {"do last for maryana task"}
+
+
+task delegatedTask {
+  description "delegatedTask description"
+  group "bodya"
+  doLast {
+    println "do last for delegated Task"
+  }
+}

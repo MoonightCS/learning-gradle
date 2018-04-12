@@ -1,0 +1,69 @@
+// dependsOn example
+task learnGradle {
+    dependsOn "udacityCourse"
+    doLast {
+        println "learn gradle"
+    }
+}
+
+task udacityCourse {
+    doLast {
+        println "finish udacity course"
+    }
+}
+
+
+// finalizedBy example
+task eatBreakfast {
+    finalizedBy "brushTeeth"
+    doLast {
+        println "om non nom breakfast"
+    }
+}
+
+task brushTeeth {
+    doLast {
+        println "Brushie Brushie Brushie"
+    }
+}
+
+// shouldRunAfter example
+task takeShower {
+    doLast {
+        println "Taking a shower"
+    }
+}
+
+task putOnFragrance {
+    shouldRunAfter "takeShower"
+    doLast {
+        println "Smellin' fresh!"
+    }
+}
+
+task putOnShoes {
+    dependsOn "putOnSocks"
+    shouldRunAfter takeShower
+    doLast {
+        println "Putting on shoes"
+    }
+}
+
+task putOnSocks {
+    doLast {
+        println "Putting on socks"
+    }
+}
+
+task getReady {
+    dependsOn = ["takeShower", "eatBreakfast", "putOnShoes"]
+}
+
+
+// matching example
+task getEquipped {
+    dependsOn tasks.matching { task -> task.name.startsWith("putOn") }
+    doLast {
+      println "All geared up!"
+    }
+}

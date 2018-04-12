@@ -1,7 +1,0 @@
-project.task("myTask1")
-task("myTask2")
-
-task myTask3
-myTask3.description = "myTask3 description"
-myTask3.group = "myTask3 super group"
-myTask3.doLast {println "Do this last"}

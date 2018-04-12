@@ -1,0 +1,30 @@
+task groovy
+
+def applyTwice(func, arg){
+    func(func(arg))
+}
+
+def applyTripple(bodyaFunc, bodyaArg) {
+  bodyaFunc(bodyaFunc(bodyaFunc(bodyaArg)))
+}
+
+def doubleIt = {x -> x + x}
+def arg = 9
+def result = applyTripple(doubleIt, arg)
+println "final result is $result"
+
+
+println "\ndelegate example"
+class GroovyGreeter {
+  String greeting = "Default greeting"
+  def printGreeting(){println "Greeting: $greeting"}
+}
+def myGroovyGreeter = new GroovyGreeter()
+def myArgOutScope = 5;
+def greetingClosure = {
+    println "arg out of scope: $myArgOutScope"
+    greeting = "Setting the greeting from a closure"
+    printGreeting()
+}
+greetingClosure.delegate = myGroovyGreeter
+greetingClosure()
