@@ -1,3 +1,0 @@
-task myCopyTask(type: Copy) {
-}
-println "Type is $myCopyTask.name"
