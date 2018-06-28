@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.springframework:spring-core:4.1.1.RELEASE'
+    implementation 'org.springframework:spring-core:4.1.1.RELEASE'
 }
 
 /*
@@ -52,7 +52,7 @@ the 'commons-logging' library to our project.
 */
 
 dependencies {
-    compile 'commons-logging:commons-logging:1.2'
+    implementation 'commons-logging:commons-logging:1.2'
 }
 
 /*
