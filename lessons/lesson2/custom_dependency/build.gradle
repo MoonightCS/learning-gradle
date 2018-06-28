@@ -38,8 +38,9 @@ repositories {
     mavenCentral()
 }
 
-task zipDeps(type: Zip) { 
-    baseName = "dependencyArchive"
-    classifier = 'deps'
+task zipDeps(type: Zip) {
+    baseName = "Foo"
+    version = "4.2"
+    classifier = 'SNAPSHOT'
     from configurations.deps
 }
